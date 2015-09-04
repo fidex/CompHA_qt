@@ -6,8 +6,10 @@
                    projectFiles="true">
       <itemPath>Camera.h</itemPath>
       <itemPath>Color.h</itemPath>
+      <itemPath>Material.h</itemPath>
       <itemPath>Matrix.h</itemPath>
       <itemPath>ShaderProgram.h</itemPath>
+      <itemPath>Texture.h</itemPath>
       <itemPath>Vector.h</itemPath>
       <itemPath>glwidget.h</itemPath>
       <itemPath>mainWindow.h</itemPath>
@@ -22,8 +24,10 @@
                    projectFiles="true">
       <itemPath>Camera.cpp</itemPath>
       <itemPath>Color.cpp</itemPath>
+      <itemPath>Material.cpp</itemPath>
       <itemPath>Matrix.cpp</itemPath>
       <itemPath>ShaderProgram.cpp</itemPath>
+      <itemPath>Texture.cpp</itemPath>
       <itemPath>Vector.cpp</itemPath>
       <itemPath>glwidget.cpp</itemPath>
       <itemPath>main.cpp</itemPath>
@@ -75,6 +79,10 @@
       </item>
       <item path="Color.h" ex="false" tool="3" flavor2="0">
       </item>
+      <item path="Material.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="Material.h" ex="false" tool="3" flavor2="0">
+      </item>
       <item path="Matrix.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="Matrix.h" ex="false" tool="3" flavor2="0">
@@ -82,6 +90,10 @@
       <item path="ShaderProgram.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="ShaderProgram.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="Texture.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="Texture.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="Vector.cpp" ex="false" tool="1" flavor2="0">
       </item>
@@ -132,6 +144,10 @@
       </item>
       <item path="Color.h" ex="false" tool="3" flavor2="0">
       </item>
+      <item path="Material.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="Material.h" ex="false" tool="3" flavor2="0">
+      </item>
       <item path="Matrix.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="Matrix.h" ex="false" tool="3" flavor2="0">
@@ -139,6 +155,10 @@
       <item path="ShaderProgram.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="ShaderProgram.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="Texture.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="Texture.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="Vector.cpp" ex="false" tool="1" flavor2="0">
       </item>
