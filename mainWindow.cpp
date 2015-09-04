@@ -6,10 +6,17 @@
  */
 
 #include "mainWindow.h"
+#include <QMouseEvent>
+
 
 mainWindow::mainWindow() {
+    setMouseTracking(true);
     widget.setupUi(this);
 }
 
 mainWindow::~mainWindow() {
+}
+void mainWindow::mouseMoveEvent(QMouseEvent* event){
+   //std::cout << event->x() << std::endl;
+    
 }

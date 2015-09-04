@@ -9,6 +9,7 @@
 #define	_MAINWINDOW_H
 
 #include "ui_mainWindow.h"
+#include <iostream>
 
 class mainWindow : public QDialog {
     Q_OBJECT
@@ -16,6 +17,7 @@ public:
     mainWindow();
     virtual ~mainWindow();
 private:
+    void mouseMoveEvent(QMouseEvent * event);
     Ui::mainWindow widget;
 };
 

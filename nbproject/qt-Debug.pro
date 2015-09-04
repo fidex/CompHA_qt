@@ -8,8 +8,8 @@ CONFIG -= debug_and_release app_bundle lib_bundle
 CONFIG += debug 
 PKGCONFIG +=
 QT = core gui widgets opengl
-SOURCES += glwidget.cpp main.cpp mainWindow.cpp
-HEADERS += glwidget.h mainWindow.h
+SOURCES += Camera.cpp Color.cpp Matrix.cpp ShaderProgram.cpp Vector.cpp glwidget.cpp main.cpp mainWindow.cpp
+HEADERS += Camera.h Color.h Matrix.h ShaderProgram.h Vector.h glwidget.h mainWindow.h
 FORMS += mainWindow.ui
 RESOURCES +=
 TRANSLATIONS +=
@@ -21,7 +21,7 @@ QMAKE_CC = gcc
 QMAKE_CXX = g++
 DEFINES += 
 INCLUDEPATH += 
-LIBS += -lGL -lpthread -lGLU -glut -lGLEW -pthread  
+LIBS += -lGL -lpthread -lGLU -lglut -lGLEW -pthread  
 equals(QT_MAJOR_VERSION, 4) {
 QMAKE_CXXFLAGS += -std=c++11
 }

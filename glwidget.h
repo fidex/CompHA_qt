@@ -10,6 +10,9 @@
 
 
 #include <qt4/QtOpenGL/QGLWidget>
+#include <iostream>
+#include "Camera.h"
+#include "ShaderProgram.h"
 
 
 
@@ -22,8 +25,26 @@ public:
     void initializeGL();
     void paintGL();
     void resizeGL(int w, int h);
+    
 private:
-    //Ui::glwidget widget;
+    void DrawScene();
+    void DrawGroundGrid();
+    void mouseMoveEvent(QMouseEvent * event);
+    // window x and y size
+    const unsigned int g_WindowWidth=640;
+    const unsigned int g_WindowHeight=480;
+    int g_MouseButton = 0;
+    int g_MouseState = 0;
+    Camera g_Camera;
+    std::string g_path;
+    ShaderProgram g_Shader;
+    int bs = 0;
+// light position (point light)
+//const Vector g_LightPos = Vector( 0,4,0);
+
+//std::string g_path('/home/fide/NetBeansProjects/Computergrafik/computergrafik_Hausarbeit/Computergrafik_Hausarbeit/texture/');
+//ShaderProgram g_Shader;
+//Ui::glwidget widget;
 };
 
 
