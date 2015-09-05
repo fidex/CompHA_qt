@@ -8,7 +8,9 @@
       <itemPath>Color.h</itemPath>
       <itemPath>Material.h</itemPath>
       <itemPath>Matrix.h</itemPath>
+      <itemPath>ObjectEditor.h</itemPath>
       <itemPath>ShaderProgram.h</itemPath>
+      <itemPath>TeaPod.h</itemPath>
       <itemPath>Texture.h</itemPath>
       <itemPath>Vector.h</itemPath>
       <itemPath>glwidget.h</itemPath>
@@ -26,7 +28,9 @@
       <itemPath>Color.cpp</itemPath>
       <itemPath>Material.cpp</itemPath>
       <itemPath>Matrix.cpp</itemPath>
+      <itemPath>ObjectEditor.cpp</itemPath>
       <itemPath>ShaderProgram.cpp</itemPath>
+      <itemPath>TeaPod.cpp</itemPath>
       <itemPath>Texture.cpp</itemPath>
       <itemPath>Vector.cpp</itemPath>
       <itemPath>glwidget.cpp</itemPath>
@@ -87,9 +91,17 @@
       </item>
       <item path="Matrix.h" ex="false" tool="3" flavor2="0">
       </item>
+      <item path="ObjectEditor.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="ObjectEditor.h" ex="false" tool="3" flavor2="0">
+      </item>
       <item path="ShaderProgram.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="ShaderProgram.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="TeaPod.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="TeaPod.h" ex="false" tool="1" flavor2="0">
       </item>
       <item path="Texture.cpp" ex="false" tool="1" flavor2="0">
       </item>
@@ -152,9 +164,17 @@
       </item>
       <item path="Matrix.h" ex="false" tool="3" flavor2="0">
       </item>
+      <item path="ObjectEditor.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="ObjectEditor.h" ex="false" tool="3" flavor2="0">
+      </item>
       <item path="ShaderProgram.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="ShaderProgram.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="TeaPod.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="TeaPod.h" ex="false" tool="1" flavor2="0">
       </item>
       <item path="Texture.cpp" ex="false" tool="1" flavor2="0">
       </item>

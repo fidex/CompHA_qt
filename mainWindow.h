@@ -18,6 +18,12 @@ class mainWindow : public QDialog {
 public:
     mainWindow();    
     virtual ~mainWindow();
+public slots:
+    void slot1();
+    void testIT();
+    void setMouseMode_move();
+    void setMouseMode_obj();
+        
 private:
     
     void mouseMoveEvent(QMouseEvent * event);

@@ -5,7 +5,10 @@
 #include <QMouseEvent>
 
 glWidget::glWidget(QWidget *parent = 0) : QGLWidget(parent){
-    setMouseTracking(true);
+    setMouseTracking(true);    
+    TeaPod *tp = new TeaPod(1,1,1);
+    ObjectEditor *Ob =  new ObjectEditor();
+    
     
 }   
         
@@ -19,6 +22,10 @@ void glWidget::initializeGL(){
     }
     
     //gluLookAt(0,0,0, 0, 2, 1, 0, 1.0f, 0);
+    //TeaPod tp();
+    //TeaPod *asd = new TeaPod();
+    //tp = asd;
+    //Ob.m_tp = asd;
     
     
     // preset
@@ -69,8 +76,10 @@ void glWidget::paintGL(){
     
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
     
-    glutWireTeapot(1);
+    //glutWireTeapot(1);
     DrawGroundGrid();
+    tp.draw();
+    
     
    
     //std::cout << "i dont belong here! "<< bs <<std::endl;
@@ -123,27 +132,43 @@ void glWidget::DrawGroundGrid()
 }
 void glWidget::mouseMoveEvent(QMouseEvent* event){
    
-    
-    if((event->buttons() & Qt::LeftButton )&&(event->buttons() & Qt::RightButton )){
-        g_Camera.mouseInput(event->x(),event->y(),GLUT_UP,GLUT_LEFT_BUTTON);   
-        updateGL();
-        return;
+    if(mouseMode == 0){
+        if((event->buttons() & Qt::LeftButton )&&(event->buttons() & Qt::RightButton )){
+            g_Camera.mouseInput(event->x(),event->y(),GLUT_UP,GLUT_LEFT_BUTTON);   
+            updateGL();
+            return;
+        }
+        if(event->buttons() & Qt::LeftButton ){
+            g_MouseButton = GLUT_LEFT_BUTTON;
+            g_MouseState = GLUT_DOWN;        
+            g_Camera.mouseInput(event->x(),event->y(),GLUT_DOWN,GLUT_LEFT_BUTTON);
+
+            updateGL();
+            return;
+        }
+        if(event->buttons() & Qt::RightButton ){ //@todo
+            g_MouseButton = GLUT_RIGHT_BUTTON;
+            g_MouseState = GLUT_DOWN;
+            g_Camera.mouseInput(event->x(),event->y(),GLUT_DOWN,GLUT_RIGHT_BUTTON);
+            updateGL();
+            return;
+        }
     }
-    if(event->buttons() & Qt::LeftButton ){
-        g_MouseButton = GLUT_LEFT_BUTTON;
-        g_MouseState = GLUT_DOWN;        
-        g_Camera.mouseInput(event->x(),event->y(),GLUT_DOWN,GLUT_LEFT_BUTTON);
+    else if(mouseMode == 1){
+        if(event->buttons() & Qt::LeftButton ){
+            
+            //Ob.rotate();
+            //Ob.setTp(tp);
+            //tp.move();
+            //tp.pos.Z += 0.1;
+            //tp.pos += Vector(0,0,0.1);
+            
+            updateGL();
+            return;
+        }
         
-        updateGL();
-        return;
+        
     }
-    if(event->buttons() & Qt::RightButton ){ //@todo
-        g_MouseButton = GLUT_RIGHT_BUTTON;
-        g_MouseState = GLUT_DOWN;
-        g_Camera.mouseInput(event->x(),event->y(),GLUT_DOWN,GLUT_RIGHT_BUTTON);
-        updateGL();
-        return;
-    }    
    g_Camera.mouseInput(event->x(),event->y(),GLUT_UP,GLUT_RIGHT_BUTTON);   
    
 }
@@ -151,11 +176,11 @@ void glWidget::DrawScene()
 {
        
 }
-void glWidget::testIt(){
-    //std::cout << "whatever" <<std::endl;
-    
-}
 void glWidget::parentMouseMoveEvent(QMouseEvent* event){
     //std::cout << event->x()<< " "<<event->y()<<std::endl; WORKS
     
+}
+void glWidget::setMouseMode(int x){
+    mouseMode = x;
+    std::cout <<"mouse mode changed"<<std::endl;
 }

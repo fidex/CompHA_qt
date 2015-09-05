@@ -26,21 +26,26 @@ public:
     Vector getTarget();
     Vector getUp();
     
+    Vector getPan();// pan for moving obj
+    
     void setPosition( const Vector& Pos);
     void setTarget( const Vector& Target);
     void setUp( const Vector& Up);
 
     void mouseInput( int x, int y, int Button, int State);
     
+    
     void apply();
 protected:
     void pan( float dx, float dy);
+    void move(float dx, float dy);
     void zoom( float dz);
     void rotate( float x, float y );
     Vector getVSpherePos( float x, float y);
     Vector rotateAxisAngle( Vector v, Vector n, float a);
     
-    
+    Vector m_mover;
+            
     Vector m_Position;
     Vector m_Target;
     Vector m_Up;

@@ -7,13 +7,8 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/home/fide/NetBeansProjects/ComputergrafikInterface/mainWindow.h</file>
-            <file>file:/home/fide/NetBeansProjects/ComputergrafikInterface/glwidget.h</file>
-            <file>file:/home/fide/NetBeansProjects/ComputergrafikInterface/Camera.h</file>
-            <file>file:/home/fide/NetBeansProjects/ComputergrafikInterface/Camera.cpp</file>
+            <file>file:/home/fide/NetBeansProjects/ComputergrafikInterface/TeaPod.cpp</file>
             <file>file:/home/fide/NetBeansProjects/ComputergrafikInterface/glwidget.cpp</file>
-            <file>file:/home/fide/NetBeansProjects/ComputergrafikInterface/main.cpp</file>
-            <file>file:/home/fide/NetBeansProjects/ComputergrafikInterface/ShaderProgram.h</file>
             <file>file:/home/fide/NetBeansProjects/ComputergrafikInterface/mainWindow.cpp</file>
         </group>
     </open-files>

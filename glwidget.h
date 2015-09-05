@@ -13,6 +13,8 @@
 #include <iostream>
 #include "Camera.h"
 #include "ShaderProgram.h"
+#include "TeaPod.h"
+#include "ObjectEditor.h"
 
 
 class glWidget : public QGLWidget {
@@ -26,6 +28,9 @@ public:
     void resizeGL(int w, int h);
     void testIt();
     void parentMouseMoveEvent(QMouseEvent *event);
+    void setMouseMode(int x);
+    
+        
 private:
     void DrawScene();
     void DrawGroundGrid();
@@ -35,10 +40,15 @@ private:
     const unsigned int g_WindowHeight=480;
     int g_MouseButton = 0;
     int g_MouseState = 0;
+    int mouseMode =0;
     Camera g_Camera;
     std::string g_path;
     ShaderProgram g_Shader;
-    int bs = 0;
+    TeaPod tp;
+    ObjectEditor Ob;
+    
+    
+    
 // light position (point light)
 //const Vector g_LightPos = Vector( 0,4,0);
 

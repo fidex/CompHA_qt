@@ -56,6 +56,7 @@ void Camera::setUp( const Vector& Up)
 
 void Camera::mouseInput( int x, int y, int Button, int State)
 {
+    move( (float)(m_LastMouseX-x)*0.01f, (float)(m_LastMouseY-y)*0.01f );
     if(State == GLUT_DOWN)
     {
         if(m_LastMouseX==-1) m_LastMouseX = x;
@@ -98,6 +99,17 @@ void Camera::pan( float dx, float dy)
     aRight.normalize();
     Vector aUp = aDir.cross(aRight);
     m_Panning = aRight * dx + aUp * dy;
+}
+void Camera::move( float dx, float dy)
+{
+    // calculate panning-plane
+    
+    Vector aDir = m_Target-m_Position;
+    aDir.normalize();
+    Vector aRight = aDir.cross(m_Up);
+    aRight.normalize();
+    Vector aUp = aDir.cross(aRight);
+    m_mover = aRight * dx + aUp * dy;
 }
 
 void Camera::zoom( float dz)
@@ -193,4 +205,7 @@ void Camera::apply()
     
     gluLookAt(Pos.X, Pos.Y, Pos.Z, Target.X, Target.Y, Target.Z, m_Up.X, m_Up.Y, m_Up.Z);
     
+}
+Vector Camera::getPan(){    
+    return m_mover;
 }
