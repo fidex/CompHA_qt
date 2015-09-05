@@ -12,11 +12,12 @@
 mainWindow::mainWindow() {
     setMouseTracking(true);
     widget.setupUi(this);
+    
 }
 
 mainWindow::~mainWindow() {
 }
 void mainWindow::mouseMoveEvent(QMouseEvent* event){
-   //std::cout << event->x() << std::endl;
-    
+   widget.widget->parentMouseMoveEvent(event);    
+
 }

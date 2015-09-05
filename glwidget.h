@@ -15,7 +15,6 @@
 #include "ShaderProgram.h"
 
 
-
 class glWidget : public QGLWidget {
     Q_OBJECT
 public:
@@ -25,7 +24,8 @@ public:
     void initializeGL();
     void paintGL();
     void resizeGL(int w, int h);
-    
+    void testIt();
+    void parentMouseMoveEvent(QMouseEvent *event);
 private:
     void DrawScene();
     void DrawGroundGrid();
@@ -42,9 +42,6 @@ private:
 // light position (point light)
 //const Vector g_LightPos = Vector( 0,4,0);
 
-//std::string g_path('/home/fide/NetBeansProjects/Computergrafik/computergrafik_Hausarbeit/Computergrafik_Hausarbeit/texture/');
-//ShaderProgram g_Shader;
-//Ui::glwidget widget;
 };
 
 

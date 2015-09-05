@@ -6,8 +6,8 @@
 
 glWidget::glWidget(QWidget *parent = 0) : QGLWidget(parent){
     setMouseTracking(true);
-
-}
+    
+}   
         
         
 void glWidget::initializeGL(){
@@ -18,10 +18,9 @@ void glWidget::initializeGL(){
         std::cout << "Glew Failed"<< glewGetErrorString(err)<< std::endl;
     }
     
-    
-    
-    
     //gluLookAt(0,0,0, 0, 2, 1, 0, 1.0f, 0);
+    
+    
     // preset
     glClearDepth(1.0f);
     glEnable(GL_DEPTH_TEST);
@@ -123,20 +122,18 @@ void glWidget::DrawGroundGrid()
 
 }
 void glWidget::mouseMoveEvent(QMouseEvent* event){
+   
     
     if((event->buttons() & Qt::LeftButton )&&(event->buttons() & Qt::RightButton )){
         g_Camera.mouseInput(event->x(),event->y(),GLUT_UP,GLUT_LEFT_BUTTON);   
-        //DrawScene();
         updateGL();
         return;
     }
     if(event->buttons() & Qt::LeftButton ){
         g_MouseButton = GLUT_LEFT_BUTTON;
-        g_MouseState = GLUT_DOWN;
-        //g_Camera.mouseInput(x,y,Button,State);
-        //std::cout << event->x() <<" "<< event->y() << g_MouseButton << g_MouseState <<std::endl;
+        g_MouseState = GLUT_DOWN;        
         g_Camera.mouseInput(event->x(),event->y(),GLUT_DOWN,GLUT_LEFT_BUTTON);
-        //DrawScene();
+        
         updateGL();
         return;
     }
@@ -144,31 +141,21 @@ void glWidget::mouseMoveEvent(QMouseEvent* event){
         g_MouseButton = GLUT_RIGHT_BUTTON;
         g_MouseState = GLUT_DOWN;
         g_Camera.mouseInput(event->x(),event->y(),GLUT_DOWN,GLUT_RIGHT_BUTTON);
-        DrawScene();
+        updateGL();
         return;
     }    
-    
    g_Camera.mouseInput(event->x(),event->y(),GLUT_UP,GLUT_RIGHT_BUTTON);   
-   //DrawScene();
-   //updateGL();
+   
 }
 void glWidget::DrawScene()
 {
-    //glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
-    //glutWireTeapot(1);
-    glLoadIdentity();
-    g_Camera.apply();
-    
-    
-    
-    
-    /*
-    GLfloat lpos[4];
-    lpos[0]=g_LightPos.X; lpos[1]=g_LightPos.Y; lpos[2]=g_LightPos.Z; lpos[3]=1;
-    glLightfv(GL_LIGHT0, GL_POSITION, lpos);
-     * */
-        
-    glDraw();
+       
+}
+void glWidget::testIt(){
+    //std::cout << "whatever" <<std::endl;
     
 }
-
+void glWidget::parentMouseMoveEvent(QMouseEvent* event){
+    //std::cout << event->x()<< " "<<event->y()<<std::endl; WORKS
+    
+}
