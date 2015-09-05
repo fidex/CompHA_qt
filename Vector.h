@@ -19,7 +19,6 @@ public:
     
     float dot(const Vector& v) const;
     Vector cross(const Vector& v) const;
-    bool operator==(const Vector& v) const;
     Vector operator+(const Vector& v) const;
     Vector operator-(const Vector& v) const;
     Vector& operator+=(const Vector& v);
