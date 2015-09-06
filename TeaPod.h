@@ -25,7 +25,7 @@ public:
     }
     TeaPod(double x, double y, double z){
         //std::cout << "here i am, on the road again"<<std::endl;
-        color = Color(0.0f,0.0f,0.0f);
+        color = Color(200.0f,0.0f,0.0f);
         pos.X = x;
         pos.Y = y;
         pos.Z = z;        
