@@ -24,6 +24,7 @@ public:
         pos.Z = z;
     }
     TeaPod(double x, double y, double z){
+        //std::cout << "here i am, on the road again"<<std::endl;
         color = Color(0.0f,0.0f,0.0f);
         pos.X = x;
         pos.Y = y;
@@ -31,12 +32,12 @@ public:
     }
     TeaPod();
     void draw();
-    void move();
+    void move(Vector m);
     Color color;
     Vector pos;
     
     ~TeaPod() {
-        std::cout << "my time has come!"<<std::endl;
+        //std::cout << "my time has come!"<<std::endl;
     }
 
     

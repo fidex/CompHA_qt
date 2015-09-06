@@ -18,8 +18,10 @@ void ObjectEditor::move(Vector move){
     Vector aUp = aDir.cross(aRight);
     m_Panning = aRight * dx + aUp * dy;
     */
+    
+    objects.at(0).move(move);
     //m_tp->pos = m_tp->pos + Vector(0,0,0.1);
-    //std::cout << m_tp->pos.Z <<std::endl;
+    //std::cout <<objects.at(0).pos.Z <<std::endl;
     
 }
 /*
@@ -36,4 +38,10 @@ void ObjectEditor::setTp(TeaPod* tp){
 void ObjectEditor::rotate(){
     std::cout << "asdasdasdsad"<< m_tp->pos.X <<std::endl;
     //m_tp->move();
+}
+void ObjectEditor::draw(){
+    
+    for(TeaPod t: objects){
+        t.draw();
+    }
 }

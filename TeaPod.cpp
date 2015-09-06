@@ -2,6 +2,7 @@
 #include "TeaPod.h"
 
 TeaPod::TeaPod(){
+    std::cout << "here i am, up on the stage"<<std::endl;
     Color color(0.0f,0.0f,0.0f);
     Vector pos(0.0f,0.0f,0.0f);
 }
@@ -17,6 +18,6 @@ void TeaPod::draw(){
     
    
 }
-void TeaPod::move(){
-    pos += Vector(0,0,0.1);
+void TeaPod::move(Vector m){
+    pos += m;
 }

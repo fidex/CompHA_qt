@@ -9,7 +9,7 @@
 #define	GLWIDGET_H
 
 
-#include <qt4/QtOpenGL/QGLWidget>
+#include <QOpenGLWidget>
 #include <iostream>
 #include "Camera.h"
 #include "ShaderProgram.h"
@@ -17,7 +17,7 @@
 #include "ObjectEditor.h"
 
 
-class glWidget : public QGLWidget {
+class glWidget : public QOpenGLWidget {
     Q_OBJECT
 public:
     explicit glWidget(QWidget *parent /*= 0*/);
@@ -44,7 +44,6 @@ private:
     Camera g_Camera;
     std::string g_path;
     ShaderProgram g_Shader;
-    TeaPod tp;
     ObjectEditor Ob;
     
     

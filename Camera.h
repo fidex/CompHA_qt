@@ -53,7 +53,9 @@ protected:
     Vector m_Zoom;
     Vector m_Rotation;
     int m_LastMouseX;
+    int m_LastMouseXm = 0;
     int m_LastMouseY;
+    int m_LastMouseYm = 0;
 };
 
 

@@ -56,7 +56,8 @@ void Camera::setUp( const Vector& Up)
 
 void Camera::mouseInput( int x, int y, int Button, int State)
 {
-    move( (float)(m_LastMouseX-x)*0.01f, (float)(m_LastMouseY-y)*0.01f );
+    
+    move((float)x,(float)y);
     if(State == GLUT_DOWN)
     {
         if(m_LastMouseX==-1) m_LastMouseX = x;
@@ -100,16 +101,25 @@ void Camera::pan( float dx, float dy)
     Vector aUp = aDir.cross(aRight);
     m_Panning = aRight * dx + aUp * dy;
 }
-void Camera::move( float dx, float dy)
+void Camera::move( float x, float y)
 {
     // calculate panning-plane
-    
+    //std::cout << dx<<" "<< dy <<std::endl;
+    if(m_LastMouseXm== 0) m_LastMouseXm = x;
+    if(m_LastMouseYm== 0) m_LastMouseYm = y;
+    float dx = x-m_LastMouseXm;
+    float dy = y-m_LastMouseYm;
+    std::cout << dx<<" "<< dy <<std::endl;
     Vector aDir = m_Target-m_Position;
     aDir.normalize();
     Vector aRight = aDir.cross(m_Up);
     aRight.normalize();
     Vector aUp = aDir.cross(aRight);
-    m_mover = aRight * dx + aUp * dy;
+    m_mover = aRight * (dx*0.01) + aUp * (dy*0.01);
+    //m_mover.normalize();
+    m_LastMouseXm = x;
+    m_LastMouseYm = y;
+    //std::cout << m_mover.X <<" "<< m_mover.Y <<" "<< m_mover.Z <<std::endl;
 }
 
 void Camera::zoom( float dz)

@@ -4,12 +4,11 @@
 #include <string>
 #include <QMouseEvent>
 
-glWidget::glWidget(QWidget *parent = 0) : QGLWidget(parent){
+glWidget::glWidget(QWidget *parent = 0) : QOpenGLWidget(parent){
     setMouseTracking(true);    
-    TeaPod *tp = new TeaPod(1,1,1);
-    ObjectEditor *Ob =  new ObjectEditor();
     
-    
+    ObjectEditor Ob;
+        
 }   
         
         
@@ -20,7 +19,10 @@ void glWidget::initializeGL(){
     if(GLEW_OK != err){
         std::cout << "Glew Failed"<< glewGetErrorString(err)<< std::endl;
     }
-    
+     TeaPod tp(1,1,1);
+     TeaPod tp2(2,2,2);
+     Ob.objects.push_back(tp);
+     Ob.objects.push_back(tp2);
     //gluLookAt(0,0,0, 0, 2, 1, 0, 1.0f, 0);
     //TeaPod tp();
     //TeaPod *asd = new TeaPod();
@@ -78,7 +80,8 @@ void glWidget::paintGL(){
     
     //glutWireTeapot(1);
     DrawGroundGrid();
-    tp.draw();
+    
+    Ob.draw();
     
     
    
@@ -135,7 +138,7 @@ void glWidget::mouseMoveEvent(QMouseEvent* event){
     if(mouseMode == 0){
         if((event->buttons() & Qt::LeftButton )&&(event->buttons() & Qt::RightButton )){
             g_Camera.mouseInput(event->x(),event->y(),GLUT_UP,GLUT_LEFT_BUTTON);   
-            updateGL();
+            update();
             return;
         }
         if(event->buttons() & Qt::LeftButton ){
@@ -143,27 +146,28 @@ void glWidget::mouseMoveEvent(QMouseEvent* event){
             g_MouseState = GLUT_DOWN;        
             g_Camera.mouseInput(event->x(),event->y(),GLUT_DOWN,GLUT_LEFT_BUTTON);
 
-            updateGL();
+            update();
             return;
         }
         if(event->buttons() & Qt::RightButton ){ //@todo
             g_MouseButton = GLUT_RIGHT_BUTTON;
             g_MouseState = GLUT_DOWN;
             g_Camera.mouseInput(event->x(),event->y(),GLUT_DOWN,GLUT_RIGHT_BUTTON);
-            updateGL();
+            update();
             return;
         }
     }
     else if(mouseMode == 1){
         if(event->buttons() & Qt::LeftButton ){
-            
+            g_Camera.mouseInput(event->x(),event->y(),GLUT_UP,GLUT_RIGHT_BUTTON); 
+            Ob.move(g_Camera.getPan());
             //Ob.rotate();
             //Ob.setTp(tp);
             //tp.move();
             //tp.pos.Z += 0.1;
             //tp.pos += Vector(0,0,0.1);
             
-            updateGL();
+            update();
             return;
         }
         

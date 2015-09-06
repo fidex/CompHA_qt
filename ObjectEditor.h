@@ -10,6 +10,7 @@
 
 #include "TeaPod.h"
 #include "Vector.h"
+#include <vector>
 
 class ObjectEditor{
     
@@ -17,6 +18,10 @@ public:
     
     ObjectEditor(){};
     TeaPod *m_tp;
+    
+    std::vector<TeaPod> objects;  
+    int activeObject;
+    void draw();
     
     void setTp(TeaPod* tp);
     void move(Vector);
