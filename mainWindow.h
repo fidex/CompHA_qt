@@ -23,6 +23,7 @@ public slots:
     void testIT();
     void setMouseMode_move();
     void setMouseMode_obj();
+    void createPod();
         
 private:
     
