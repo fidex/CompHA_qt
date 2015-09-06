@@ -20,10 +20,10 @@ public:
     TeaPod *m_tp;
     
     std::vector<TeaPod> objects;  
-    int activeObject;
+    int activeObject = 0;
     void draw();
     
-    void setTp(TeaPod* tp);
+    void setActive(int);
     void move(Vector);
     void rotate();
     //void setMouse(int x, int y);
