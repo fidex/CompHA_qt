@@ -15,6 +15,7 @@ mainWindow::mainWindow() {
     widget.setupUi(this);
     QObject::connect(widget.objectbutton, SIGNAL(clicked()), this, SLOT(setMouseMode_obj()));
     QObject::connect(widget.cambutton, SIGNAL(clicked()), this, SLOT(setMouseMode_move()));
+    QObject::connect(widget.createbutton, SIGNAL(clicked()), this, SLOT(createPod()));
 }
 
 mainWindow::~mainWindow() {
@@ -34,4 +35,7 @@ void mainWindow::setMouseMode_move(){
 }
 void mainWindow::setMouseMode_obj(){
     widget.widget->setMouseMode(1);
+}
+void mainWindow::createPod(){
+    widget.widget->addPod();
 }
