@@ -59,8 +59,8 @@ public:
     Model();
     ~Model();
     const BoundingBox& boundingBox() const;
-    bool loadOBJ( const char* Filename, bool FitSize=true);
-    void draw() const;
+    bool loadOBJ( const char* Filename);
+    void draw();
     void buffer();
     void drawLines() const;
     void drawTriangles() const;

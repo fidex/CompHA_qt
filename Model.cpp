@@ -66,7 +66,7 @@ Model::~Model()
         delete [] m_pVertices;
 }
 
-bool Model::loadOBJ( const char* Filename, bool FitSize)
+bool Model::loadOBJ( const char* Filename)
 {
     clock_t t = clock();
     
@@ -220,7 +220,7 @@ bool Model::loadOBJ( const char* Filename, bool FitSize)
         
     }
     
-//    m_pVertices.resize(vertex_map.size());
+    //Vertices in passende Reihenfolge bringen
     m_VertexCount = vertex_map.size();
     m_pVertices = new Vertex[vertex_map.size()];
     for(auto itr:vertex_map){
@@ -314,13 +314,13 @@ void Model::buffer(){
     isBuffered = true;
 }
 
-void Model::deleteBuffer(){
-    
-}
+//void Model::deleteBuffer(){
+//    
+//}
 
-void Model::draw() const {
+void Model::draw(){
     if(!isBuffered){
-        buffer();
+        this->buffer();
     }
     
     glPushMatrix();
