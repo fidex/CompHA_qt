@@ -18,8 +18,11 @@ void ObjectEditor::move(Vector move){
     Vector aUp = aDir.cross(aRight);
     m_Panning = aRight * dx + aUp * dy;
     */
-    
-    objects.at(0).move(move);
+    if(objects.size() == 0){
+        std::cout <<" no objects created"<<std::endl;
+        return;
+    }
+    objects.at(activeObject).move(move);
     //m_tp->pos = m_tp->pos + Vector(0,0,0.1);
     //std::cout <<objects.at(0).pos.Z <<std::endl;
     
@@ -30,13 +33,13 @@ void ObjectEditor::setMouse(int x,int y){
     m_LastMouseX = x;
     m_LastMouseY = y;
 }*/
-void ObjectEditor::setTp(TeaPod* tp){
-    std::cout << tp->pos.X <<std::endl;
-    m_tp = tp;
-    std::cout << m_tp->pos.X <<std::endl;
+void ObjectEditor::setActive(int x){
+    activeObject = x;
+    std::cout << "asdasdasdsad" <<std::endl;
+    objects[x].color = Color(1.0f,0.0f,0.0f);
 }
 void ObjectEditor::rotate(){
-    std::cout << "asdasdasdsad"<< m_tp->pos.X <<std::endl;
+    
     //m_tp->move();
 }
 void ObjectEditor::draw(){
