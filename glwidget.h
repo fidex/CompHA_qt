@@ -30,7 +30,8 @@ public:
     void parentMouseMoveEvent(QMouseEvent *event);
     void setMouseMode(int x);
     
-        
+    /* test methods*/
+    void addPod();
 private:
     void DrawScene();
     void DrawGroundGrid();
