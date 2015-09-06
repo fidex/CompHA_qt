@@ -19,15 +19,7 @@ void glWidget::initializeGL(){
     if(GLEW_OK != err){
         std::cout << "Glew Failed"<< glewGetErrorString(err)<< std::endl;
     }
-     TeaPod tp(1,1,1);
-     TeaPod tp2(2,2,2);
-     Ob.objects.push_back(tp);
-     Ob.objects.push_back(tp2);
-    //gluLookAt(0,0,0, 0, 2, 1, 0, 1.0f, 0);
-    //TeaPod tp();
-    //TeaPod *asd = new TeaPod();
-    //tp = asd;
-    //Ob.m_tp = asd;
+     
     
     
     // preset
@@ -90,21 +82,6 @@ void glWidget::paintGL(){
     glLoadIdentity();
     g_Camera.apply();
     
-    //SetupDefaultGLSettings();
-    
-    //glutDisplayFunc(DrawScene());
-    //glutMouseFunc(MouseCallback);
-    //glutKeyboardFunc(KeyboardCallback);
-    //glutMotionFunc(MouseMoveCallback);
-    
-    //ShaderProgram g_Shader;
-    //g_Shader.load((g_path+"toon.vert").c_str(), (g_path+"toon.frag").c_str());
-    //g_Shader.activate();
-
-    //g_Model.loadOBJ(g_ModelToLoad);
-    
-    
-    
     
 }
 void glWidget::resizeGL(int w, int h){}
@@ -161,12 +138,7 @@ void glWidget::mouseMoveEvent(QMouseEvent* event){
         if(event->buttons() & Qt::LeftButton ){
             g_Camera.mouseInput(event->x(),event->y(),GLUT_UP,GLUT_RIGHT_BUTTON); 
             Ob.move(g_Camera.getPan());
-            //Ob.rotate();
-            //Ob.setTp(tp);
-            //tp.move();
-            //tp.pos.Z += 0.1;
-            //tp.pos += Vector(0,0,0.1);
-            
+                        
             update();
             return;
         }
@@ -187,4 +159,13 @@ void glWidget::parentMouseMoveEvent(QMouseEvent* event){
 void glWidget::setMouseMode(int x){
     mouseMode = x;
     std::cout <<"mouse mode changed"<<std::endl;
+}
+void glWidget::addPod(){
+    
+    int x = Ob.objects.size();
+    TeaPod tp(1,1,1);
+    Ob.objects.push_back(tp);
+    
+    Ob.setActive(x);
+    update();
 }
